@@ -12,7 +12,7 @@ def login(request):
         user= auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request,user)
-            messages.add_message(request,messages.SUCCESS,'Oturum açııldı')
+            messages.add_message(request,messages.SUCCESS,'Oturum açıldı')
             return redirect('index')
         else:
             messages.add_message(request,messages.ERROR,'Hatalı giriş')
@@ -36,11 +36,10 @@ def register(request):
           else:
               if User.objects.filter(email=email).exists():
                   messages.add_message(request, messages.WARNING, 'bu email daha önce alınmış')
-
                   return redirect('register')
               else:
                    #everything is fine
-                   user = User.objects.create_user(username=username, email=email, password=password)
+                   user = User.objects.create_user(username=username, password=password, email=email)
                    user.save()
                    messages.add_message(request,messages.SUCCESS,'Hesabınız başarıyla oluşturuldu')
                    return redirect('login')
