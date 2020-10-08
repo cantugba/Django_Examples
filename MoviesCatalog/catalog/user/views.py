@@ -13,7 +13,7 @@ def login(request):
         if user is not None:
             auth.login(request,user)
             messages.add_message(request,messages.SUCCESS,'Oturum açıldı')
-            return redirect('index')
+            return redirect('indeks')
         else:
             messages.add_message(request,messages.ERROR,'Hatalı giriş')
             return redirect('login')
@@ -53,4 +53,4 @@ def logout(request):
     if request.method== 'POST':
         auth.logout(request)
         messages.add_message(request,messages.SUCCESS, 'Oturumunuz kapatıldı.')
-        return redirect('index')
+        return redirect('indeks')

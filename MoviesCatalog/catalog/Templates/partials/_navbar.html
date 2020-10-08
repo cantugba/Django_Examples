@@ -1,7 +1,7 @@
 <header>
     <div class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container">
-            <a href="{% url 'index' %}" class="navbar-brand">Movie App</a>
+            <a href="{% url 'indeks' %}" class="navbar-brand">Movie App</a>
             <ul class="navbar-nav mr-auto">
                 <li
                         {% if request.path == '/' %}
@@ -10,7 +10,7 @@
                             class="nav-item"
                         {% endif %}
                 >
-                    <a href="{% url 'index' %}" class="nav-link">Home</a>
+                    <a href="{% url 'indeks' %}" class="nav-link">Home</a>
                 </li>
                 <li
                         {% if 'about' in request.path %}

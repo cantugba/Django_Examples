@@ -2,11 +2,11 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-#Django projeleri ile etkileşim oluşturmak için kullanılır. dosya içeriğinde komut satırdan aldığı parametreleri çalıştırdığı zaten görülmekte
+
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mBlog.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myBlog.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
