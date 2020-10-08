@@ -1,5 +1,42 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h1>register</h1>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h4> Register</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <form action="{% ulr 'register' %}" METHOD="POST">
+
+                        <div class="form-group">
+                            <label for="username"> Username </label>
+                            <input type="text" name="username" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email"> Email </label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password"> Password </label>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                             <label for="repassword"> Re-Password </label>
+                            <input type="password" name="repassword" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
