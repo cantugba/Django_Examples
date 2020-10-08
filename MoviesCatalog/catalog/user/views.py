@@ -1,7 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import auth #gönderilen bilgilerle eşleşen kayıtlaarın varlığının sorgulamasını yapıyor
-# Create your views here.
+from  django.contrib import messages
+
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -10,9 +12,10 @@ def login(request):
         user= auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request,user)
-            print('login başarılı')
+            messages.add_message(request,messages.SUCCESS,'Oturum açııldı')
             return redirect('index')
         else:
+            messages.add_message(request,messages.ERROR,'Hatalı giriş')
             return redirect('login')
             
     else:
@@ -28,20 +31,20 @@ def register(request):
       
       if password == repassword:
           if User.objects.filter(username=username).exists():
-              print('Bu kullanıcı adı daha önce alınmıştır')
+              messages.add_message(request,messages.WARNING,'bu kullanıcı adı daha önce alınmış')
               return redirect('register')
           else:
               if User.objects.filter(email=email).exists():
-                  print('Bu mail daha önce alınmış')
+                  messages.add_message(request, messages.WARNING, 'bu email daha önce alınmış')
+
                   return redirect('register')
               else:
                    #everything is fine
                    user = User.objects.create_user(username=username, email=email, password=password)
                    user.save()
-                   print('Kullanıcı oluşturuldu')
+                   messages.add_message(request,messages.SUCCESS,'Hesabınız başarıyla oluşturuldu')
                    return redirect('login')
       else:
-        print('parolalar eşleşmiyor')
         return redirect('register')
       
     else:
