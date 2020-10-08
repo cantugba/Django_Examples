@@ -10,7 +10,8 @@
 
                 <div class="card-body">
 
-                    <form action="{% url 'login' %}" METHOD="GET">
+                    <form action="{% url 'login' %}" METHOD="POST">
+                        {% csrf_token %}
 
                         <div class="form-group">
                             <label for="username"> Username </label>
