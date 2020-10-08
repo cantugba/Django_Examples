@@ -1,8 +1,0 @@
-önce settingse startapp userın yolunu ver
-sonra urls.py dosyasını oluştur
-
-userda oluşturlan url i ama urle ekle
-
-sonra user altındaki viewse gerekli metodları oluştur
-
-oluşturulan metodların templatelerini oluştur yani html dosyaları
